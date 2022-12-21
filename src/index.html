@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Carrycranes</title>
+    <base href="/" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+
+    <link
+      rel="shortcut icon"
+      type="assets/images/x-icon"
+      href="./assets/images/favicon.png"/>
+
+    <meta name="theme-color" content="#830421" />
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+      rel="stylesheet"/>
+
+    <link rel="stylesheet" type="text/css" href="./assets/css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/carousel.css" />
+    <link rel="stylesheet" href="./assets/css/animate.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/lightbox.css" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <app-root></app-root>
+  </body>
+  <script src="./assets/jq/jquery.min.js"></script>
+  <script src="./assets/js/popper.min.js"></script>
+  <script src="./assets/js/bootstrap.min.js"></script>
+  <script src="./assets/js/owl.carousel.min.js"></script>
+  <script src="./assets/js/slider-one.js"></script>
+  <script src="./assets/js/lightbox-plus-jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 300) {
+          $(".scroll-to-top").fadeIn();
+        } else {
+          $(".scroll-to-top").fadeOut();
+        }
+      });
+      $(".scroll-to-top").click(function () {
+        $("html, body").animate(
+          {
+            scrollTop: 0,
+          },
+          2000
+        );
+        return false;
+      });
+    });
+  </script>
+  <script>
+    // <!-- fixedheader js -->
+    $(window).scroll(function () {
+      if ($(window).scrollTop() >= 85) {
+        $(".myheader").addClass("fixedheader");
+      } else {
+        $(".myheader").removeClass("fixedheader");
+      }
+    });
+  </script>
+  <!-- collapse -->
+  <script>
+    $(document).ready(function () {
+      // Add minus icon for collapse element which is open by default
+      $(".collapse.show").each(function () {
+        $(this)
+          .prev(".card-header")
+          .find(".fa")
+          .addClass("fa-minus")
+          .removeClass("fa-plus");
+      });
+
+      // Toggle plus minus icon on show hide of collapse element
+      $(".collapse")
+        .on("show.bs.collapse", function () {
+          $(this)
+            .prev(".card-header")
+            .find(".fa")
+            .removeClass("fa-plus")
+            .addClass("fa-minus");
+        })
+        .on("hide.bs.collapse", function () {
+          $(this)
+            .prev(".card-header")
+            .find(".fa")
+            .removeClass("fa-minus")
+            .addClass("fa-plus");
+        });
+    });
+  </script>
+  <script>
+    $(".count").each(function () {
+      $(this)
+        .prop("Counter", 0)
+        .animate(
+          {
+            Counter: $(this).text(),
+          },
+          {
+            duration: 7000,
+            easing: "swing",
+            step: function (now) {
+              $(this).text(Math.ceil(now));
+            },
+          }
+        );
+    });
+  </script>
+</html>
+
